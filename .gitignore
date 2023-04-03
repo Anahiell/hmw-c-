@@ -1,4 +1,5 @@
-﻿bin
-obj
-HMW.csproj
-.vs/
+﻿.vs/
+App.config
+Properties/
+bin/
+obj/

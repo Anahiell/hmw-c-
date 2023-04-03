@@ -4,145 +4,140 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HMW
+namespace Hw_struct_class
 {
- 
+    
     class Program
     {
-        
+        enum Products
+        {
+            Drinks,
+            Food,
+            Chemicals,
+        }
         static void Main(string[] args)
         {
-            int var;
-            Console.WriteLine("\tWelcome\nChouse Task(1-7)");
-            var = Int32.Parse(Console.ReadLine());
-            while (var != 0)
+            Article[] Food = new Article[3];
+            Article[] Drinks = new Article[3];
+            Article[] Chem = new Article[3];
+            Food[0].Prod_name = "Apple";
+            Food[1].Prod_name = "Meat";
+            Food[2].Prod_name = "Milk";
+            Drinks[0].Prod_name = "CocaCola";
+            Drinks[1].Prod_name = "Fanta";
+            Drinks[2].Prod_name = "Mineral Water";
+            for (int i = 0; i < 3; i++)
             {
-                switch (var)
-                {
-                    case 1://task Multiplicity
-                        {
-                            Console.WriteLine("Write number (1-100)");
-                            int x = Int32.Parse(Console.ReadLine());
-                            Mult mul = new Mult(x);
-                            mul.Fizz_Buzz();
-                            break;
-                        }
-                    case 2://task Pircent 
-                        {
-                            Console.WriteLine("Write number:");
-                            int x = Int32.Parse(Console.ReadLine());
-                            Console.WriteLine("Write percent:");
-                            int y = Int32.Parse(Console.ReadLine());
-                            double res = (x * ((double)y / 100));
-                            Console.WriteLine("Pircent: " + res+"%");
-                            break;
-                        }
-                    case 3:// task creat number
-                        {
-                            Console.WriteLine("Start creat number:");
-                            Console.WriteLine("Write number THOUSANDTHS:");
-                            int x = Int32.Parse(Console.ReadLine());
-                            Console.WriteLine("Write number HUNDREDTHS:");
-                            int y = Int32.Parse(Console.ReadLine());
-                            Console.WriteLine("Write number DOZEN:");
-                            int z = Int32.Parse(Console.ReadLine());
-                            Console.WriteLine("Write number UNITS:");
-                            int e = Int32.Parse(Console.ReadLine());
-                            int res = ((x * 1000) + (y * 100) + (z * 10) + (e * 1));
-                            Console.WriteLine("Your number is: " + res);
-                            break;
-                        }
-                    case 4:
-                        {
-                            Console.WriteLine("You have some numbe, you can SWAP him 3tims");
-                            int[] Ar=new int[6];
-                            for(int i=0;i<6;i++)
-                            {
-                                Ar[i] = i;
-                            }
-                            int x;
-                            int Count=0;
-                            for (int i = 0; i < 6; i++)
-                            {
-                                Console.Write(Ar[i] + ";");
-                            }
-                            while (Count!=3)
-                            { 
-                                Console.WriteLine("Enter two number to change");
-                                int ind1 = Int32.Parse(Console.ReadLine());
-                                int ind2 = Int32.Parse(Console.ReadLine());
-                                x = Ar[ind1];
-                                Ar[ind1] = Ar[ind2];
-                                Ar[ind2] = x;
-                                Console.WriteLine("SWAP!!!");
-                                for (int i = 0; i < 6; i++)
-                                {
-                                    Console.Write(Ar[i] + ";");
-                                }
-                                Count++;
-                            }
-                            break;
-                        }
-                    case 5:
-                        {
-                            Console.WriteLine("Write number:");
-                            int x = Int32.Parse(Console.ReadLine());
-                            Console.WriteLine("Write number:");
-                            int y = Int32.Parse(Console.ReadLine());
-                            Console.WriteLine("Write number:");
-                            int z = Int32.Parse(Console.ReadLine());
-                            Date d = new Date(x, y, z);
-                            d.Month();
-                            break;
-                        }
-                    case 6://Far and Cel
-                        {
-                            //(2 °C × 9 / 5) +32 = 35,6 °F
+                Food[i].Prod_num = 321 + i;
+                Food[i].Prod_price = 3 + (decimal)(i * 1.05);
+                Drinks[i].Prod_num = 421 + i;
+                Drinks[i].Prod_price = 1 + (decimal)(i * 1.15);
 
-
-                            Console.WriteLine("Enter the number Celsius or Faraday");
-                                float x = float.Parse(Console.ReadLine());
-                            float resF = ((x * (9 / 5) + 32));
-                            float resC = (x - 32) * (5 / 9);
-                            Console.WriteLine("Celsius: " + resC + "\nFaraday: " + resF);
-                            break;
-                        }
-                    case 7:
-                        {
-                            Console.WriteLine("Enter two number:");
-                            int x = Int32.Parse(Console.ReadLine());
-                            int y = Int32.Parse(Console.ReadLine());
-                            if(x<y)
-                            {
-                                Console.WriteLine("Double number:");
-                                do
-                                {
-                                    if (x % 2 == 0)
-                                        Console.WriteLine(x);
-                                    x++;
-                                }
-                                while (x <= y);
-                            }
-                            else
-                            {
-                                Console.WriteLine("Double number:");
-                                do
-                                {
-                                    if (y % 2 == 0)
-                                        Console.WriteLine(y);
-                                    y++;
-                                }
-                                while (y <= x);
-                            }
-
-                            break;
-                        }
-                    default:
-                        break;
-                }
-                Console.WriteLine("\nChouse Task(1-7)");
-                var = Int32.Parse(Console.ReadLine());
             }
+            Console.WriteLine("Chouse Task (...):");
+            int x;
+            x = int.Parse(Console.ReadLine());
+            switch (x)
+            {
+                case 1:
+                    {
+                        Console.WriteLine("Welcome to market have 3 lines\n1-Food\n2-Drinks\n3-Chemicals\nchouse:");
+                        int y = int.Parse(Console.ReadLine());
+                        switch (y)
+                        {
+                            case 1:
+                                {
+                                    Products Prd = Products.Food;
+                                    if (Prd == Products.Food)
+                                    {
+                                        Console.WriteLine($"Welcom to { Prd}line");
+                                        for (int i = 0; i < 3; i++)
+                                        {
+                                            Console.WriteLine(Food[i].ToString());
+                                            Console.WriteLine("__________");
+                                        }
+                                    }
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    Products Prd = Products.Drinks;
+                                    if (Prd == Products.Drinks)
+                                    {
+                                        Console.WriteLine($"Welcom to {Prd}  line");
+                                        for (int i = 0; i < 3; i++)
+                                        {
+                                            Console.WriteLine(Drinks[i].ToString());
+                                            Console.WriteLine("__________");
+                                        }
+                                    }
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    Products Prd = Products.Chemicals;
+                                    if (Prd == Products.Chemicals)
+                                    {
+                                        Console.WriteLine($"Welcom to {Prd}  line");
+                                        for (int i = 0; i < 3; i++)
+                                        {
+                                            Console.WriteLine(Chem[i].ToString());
+                                            Console.WriteLine("__________");
+                                        }
+                                    }
+                                    break;
+                                }
+                            default:
+                            break;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("Students in some collage inf:");
+                        Student A = new Student("Ivan","Ivanov","Ivanovich",18);
+                        Student B = new Student("Sidr","Sidorov","Sidorovich",19);
+                        for(int i=0;i<3;i++)
+                        {
+                            A.Set_marks(i);
+                            B.Set_marks(i);
+                            A.Get_midl_Mark(i);
+                            B.Get_midl_Mark(i);
+                        }
+                        Console.WriteLine(A.ToString());
+                        Console.WriteLine("_________");
+                        Console.WriteLine(B.ToString());
+                        break;
+                    }
+                case 3:
+                    {
+                        Some_Figure A = new Some_Figure();
+                        A.Sum_all_Perimetr();
+                        A.Sum_all_Square();
+                        A.Show_All();
+                        Console.WriteLine(A.ToString());
+                        break;
+                    }
+                case 4:
+                    {
+                        Point a = new Point(10, 20);
+                        Point b = new Point(22, 11);
+                        Console.WriteLine("Point A: "+a.ToString()+"\nPoint B: "+b.ToString());
+                        if (a > b)
+                        {
+                            Console.WriteLine("a>b");
+                        }
+                        if (a < b)
+                        {
+                            Console.WriteLine("a<b");
+                        }
+                        break;
+                    }
+                default:
+                    break;
+            }
+
         }
+
     }
 }
