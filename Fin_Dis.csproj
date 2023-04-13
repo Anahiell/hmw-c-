@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{11AE2599-1EDD-4CB5-A7D8-921B79FB1894}</ProjectGuid>
+    <ProjectGuid>{D79D5C0D-9CC3-4635-91E1-E4D8394BA4D1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Calc_Out</RootNamespace>
-    <AssemblyName>Calc_Out</AssemblyName>
+    <RootNamespace>Fin_Dis</RootNamespace>
+    <AssemblyName>Fin_Dis</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICalc.cs" />
-    <Compile Include="ICalc2.cs" />
-    <Compile Include="IOutput2.cs" />
-    <Compile Include="MyArray.cs" />
+    <Compile Include="Market.cs" />
+    <Compile Include="PlayT.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
