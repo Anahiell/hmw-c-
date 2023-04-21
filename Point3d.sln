@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33328.57
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fin_Dis", "Fin_Dis.csproj", "{D79D5C0D-9CC3-4635-91E1-E4D8394BA4D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Point3d", "Point3d.csproj", "{E70080D0-21C7-4B43-90D3-701272BBEDF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D79D5C0D-9CC3-4635-91E1-E4D8394BA4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D79D5C0D-9CC3-4635-91E1-E4D8394BA4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D79D5C0D-9CC3-4635-91E1-E4D8394BA4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D79D5C0D-9CC3-4635-91E1-E4D8394BA4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E70080D0-21C7-4B43-90D3-701272BBEDF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E70080D0-21C7-4B43-90D3-701272BBEDF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E70080D0-21C7-4B43-90D3-701272BBEDF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E70080D0-21C7-4B43-90D3-701272BBEDF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {62D38B56-4622-47AB-8D4C-9D9C56B2D071}
+		SolutionGuid = {0A7999ED-8BC3-4813-85F9-4FE3C8856836}
 	EndGlobalSection
 EndGlobal

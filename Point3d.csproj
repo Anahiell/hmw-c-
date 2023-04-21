@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D79D5C0D-9CC3-4635-91E1-E4D8394BA4D1}</ProjectGuid>
+    <ProjectGuid>{E70080D0-21C7-4B43-90D3-701272BBEDF2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Fin_Dis</RootNamespace>
-    <AssemblyName>Fin_Dis</AssemblyName>
+    <RootNamespace>Point3d</RootNamespace>
+    <AssemblyName>Point3d</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Market.cs" />
-    <Compile Include="PlayT.cs" />
+    <Compile Include="Line.cs" />
+    <Compile Include="Point2D.cs" />
+    <Compile Include="Point3D.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

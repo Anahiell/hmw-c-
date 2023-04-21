@@ -1,5 +1,5 @@
 ﻿.vs/
 App.config
-Properies/
-bin/
-obj/
+Properties
+obj
+bin

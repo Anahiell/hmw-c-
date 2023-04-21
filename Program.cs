@@ -4,44 +4,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fin_Dis
+namespace Point3d
 {
     class Program
     {
         static void Main(string[] args)
         {
+            object A = new Point2D<int>(2, 3);
+            object B = new Point2D<int>(7, 6);
+            object A3 = new Point3D(1, 2, 3);
+            Console.WriteLine(A3);
+            Console.WriteLine("///////////");
+            object Line = new Line(A, B);
+            Console.WriteLine(Line);
+            Console.WriteLine("///////////");
+            string Text = @"            Some Text
+            Peter Piper picked a peck of pickled peppers.
+            A peck of pickled peppers Peter Piper picked.
+            If Peter Piper picked a peck of pickled peppers,
+            Where's the peck of pickled peppers Peter Piper picked?";
+            Console.WriteLine(Text);
+            string[] Words = Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+
+            Dictionary<string, int> Repeat = new Dictionary<string, int>();
+
+            Repeat.Add("Peter", 0);
+            Repeat.Add("peppers", 0);
+            Repeat.Add("Piper", 0);
+            foreach (string s in Words)
             {
-                PlayT Poem = new PlayT("Romeo & Julietta", "Shekspier", "Drama", 1594);
-                Console.WriteLine(Poem);
-                Poem = null;
-                Console.WriteLine("!Start Garbeg collector to start work Finalizator!");
-                System.GC.Collect();
-                GC.WaitForPendingFinalizers();
+                if (s.Contains("Peter"))
+                {
+                    Repeat["Peter"]++;
+                }
+                if (s.Contains("peppers"))
+                {
+                    Repeat["peppers"]++;
+                }
+                if (s.Contains("Piper"))
+                {
+                    Repeat["Piper"]++;
+                }
             }
-            Console.WriteLine("\n////////////////////////////////\n");
+            foreach (var s in Repeat)
             {
-                PlayT Soem = new PlayT("Hamlet", "Shekspier", "Drama", 1604);
-                Console.WriteLine(Soem.ToString());
-                Console.WriteLine("!!!!!!!!!!");
-                Soem.Dispose();
-                Console.WriteLine("!!!!!!!!!!");
+                Console.WriteLine("{0} in text have {1}", s.Key, s.Value);
             }
-            Console.WriteLine("\n|||||||||||||||||||||||||||||||\n");
-            {
-                Market Mar = new Market("Tavria","Pushkinskaya 7",0);
-                Console.WriteLine(Mar);
-                Console.WriteLine("!!!!!!!!!!");
-                Mar.Dispose();
-                Console.WriteLine("!!!!!!!!!!");
-            }
-            Console.WriteLine("\n////////////////////////////////\n");
-            {
-                Market Gar = new Market("Silpo", "Pantera 8a", 0);
-                Console.WriteLine(Gar);
-                Gar = null;
-                Console.WriteLine("!Start Garbeg collector to start work Finalizator!");
-                GC.WaitForPendingFinalizers();
-            }
+
         }
     }
 }
