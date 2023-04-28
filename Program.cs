@@ -4,140 +4,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hw_struct_class
+namespace Delegator
 {
-    
+    public delegate void Delegator(string Some_string);
+    public delegate string DelegatorArif(double X, double Y);
+    public delegate bool Preicator<in T>(T obj);
+    class Arif
+    {
+
+        public string Plus(double X, double Y)
+        {
+            return $"{X}+{Y}={X + Y}";
+        }
+        public string Minus(double X, double Y)
+        {
+            return $"{X}-{Y}={X - Y}";
+        }
+        public string Multi(double X, double Y)
+        {
+            return $"{X}*{Y}={X * Y}";
+        }
+    }
     class Program
     {
-        enum Products
+        public static void Massage(string Some_Mas)
         {
-            Drinks,
-            Food,
-            Chemicals,
+            Console.WriteLine(Some_Mas);
         }
         static void Main(string[] args)
         {
-            Article[] Food = new Article[3];
-            Article[] Drinks = new Article[3];
-            Article[] Chem = new Article[3];
-            Food[0].Prod_name = "Apple";
-            Food[1].Prod_name = "Meat";
-            Food[2].Prod_name = "Milk";
-            Drinks[0].Prod_name = "CocaCola";
-            Drinks[1].Prod_name = "Fanta";
-            Drinks[2].Prod_name = "Mineral Water";
-            for (int i = 0; i < 3; i++)
+            Console.WriteLine("Task #1\nEnter the massage:");
+            string ClientMassage;
+            ClientMassage = Console.ReadLine();
+            Console.WriteLine("Call delegator!!!");
+            Delegator Del = new Delegator(Massage);
+            Del(ClientMassage);
+            Del.Invoke(ClientMassage);
+            Console.WriteLine("Task #2");
+            Arif Ar = new Arif();
+            DelegatorArif[] Darif = { Ar.Plus, Ar.Minus, Ar.Multi };
+            foreach (var S in Darif)
             {
-                Food[i].Prod_num = 321 + i;
-                Food[i].Prod_price = 3 + (decimal)(i * 1.05);
-                Drinks[i].Prod_num = 421 + i;
-                Drinks[i].Prod_price = 1 + (decimal)(i * 1.15);
+                Console.WriteLine(S.Invoke(2, 3));
+            }
+            Console.WriteLine("Task #3");
+            Preicator<double> PrePar = (double x) => (x % 2) == 0;
+            Console.WriteLine("2 is pair? -" + PrePar(2));
+            Console.WriteLine("3 is pair? -" + PrePar(3));
+            PrePar = (double x) => ((x % 2) != 0) && (x / 1 == x) && (x / x == 1);
+            Console.WriteLine("3 is nature? -" + PrePar(3));
+            Console.WriteLine("6 is nature? -" + PrePar(6));
+            int Fibonachi(double n)
+            {
+                if (n == 0 || n == 1) return (int)n;
 
+                return Fibonachi(n - 1) + Fibonachi(n - 2);
             }
-            Console.WriteLine("Chouse Task (...):");
-            int x;
-            x = int.Parse(Console.ReadLine());
-            switch (x)
-            {
-                case 1:
-                    {
-                        Console.WriteLine("Welcome to market have 3 lines\n1-Food\n2-Drinks\n3-Chemicals\nchouse:");
-                        int y = int.Parse(Console.ReadLine());
-                        switch (y)
-                        {
-                            case 1:
-                                {
-                                    Products Prd = Products.Food;
-                                    if (Prd == Products.Food)
-                                    {
-                                        Console.WriteLine($"Welcom to { Prd}line");
-                                        for (int i = 0; i < 3; i++)
-                                        {
-                                            Console.WriteLine(Food[i].ToString());
-                                            Console.WriteLine("__________");
-                                        }
-                                    }
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    Products Prd = Products.Drinks;
-                                    if (Prd == Products.Drinks)
-                                    {
-                                        Console.WriteLine($"Welcom to {Prd}  line");
-                                        for (int i = 0; i < 3; i++)
-                                        {
-                                            Console.WriteLine(Drinks[i].ToString());
-                                            Console.WriteLine("__________");
-                                        }
-                                    }
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    Products Prd = Products.Chemicals;
-                                    if (Prd == Products.Chemicals)
-                                    {
-                                        Console.WriteLine($"Welcom to {Prd}  line");
-                                        for (int i = 0; i < 3; i++)
-                                        {
-                                            Console.WriteLine(Chem[i].ToString());
-                                            Console.WriteLine("__________");
-                                        }
-                                    }
-                                    break;
-                                }
-                            default:
-                            break;
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        Console.WriteLine("Students in some collage inf:");
-                        Student A = new Student("Ivan","Ivanov","Ivanovich",18);
-                        Student B = new Student("Sidr","Sidorov","Sidorovich",19);
-                        for(int i=0;i<3;i++)
-                        {
-                            A.Set_marks(i);
-                            B.Set_marks(i);
-                            A.Get_midl_Mark(i);
-                            B.Get_midl_Mark(i);
-                        }
-                        Console.WriteLine(A.ToString());
-                        Console.WriteLine("_________");
-                        Console.WriteLine(B.ToString());
-                        break;
-                    }
-                case 3:
-                    {
-                        Some_Figure A = new Some_Figure();
-                        A.Sum_all_Perimetr();
-                        A.Sum_all_Square();
-                        A.Show_All();
-                        Console.WriteLine(A.ToString());
-                        break;
-                    }
-                case 4:
-                    {
-                        Point a = new Point(10, 20);
-                        Point b = new Point(22, 11);
-                        Console.WriteLine("Point A: "+a.ToString()+"\nPoint B: "+b.ToString());
-                        if (a > b)
-                        {
-                            Console.WriteLine("a>b");
-                        }
-                        if (a < b)
-                        {
-                            Console.WriteLine("a<b");
-                        }
-                        break;
-                    }
-                default:
-                    break;
-            }
+
+            PrePar = (double x) => x == Fibonachi(x);
+            Console.WriteLine("4 is Fibonachi num? -" + PrePar(4));
+            Console.WriteLine("5 is Fibonachi num? -" + PrePar(5));
 
         }
-
     }
 }
