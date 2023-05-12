@@ -4,140 +4,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hw_struct_class
+namespace FirmArr
 {
-    
     class Program
     {
-        enum Products
-        {
-            Drinks,
-            Food,
-            Chemicals,
-        }
         static void Main(string[] args)
         {
-            Article[] Food = new Article[3];
-            Article[] Drinks = new Article[3];
-            Article[] Chem = new Article[3];
-            Food[0].Prod_name = "Apple";
-            Food[1].Prod_name = "Meat";
-            Food[2].Prod_name = "Milk";
-            Drinks[0].Prod_name = "CocaCola";
-            Drinks[1].Prod_name = "Fanta";
-            Drinks[2].Prod_name = "Mineral Water";
-            for (int i = 0; i < 3; i++)
+            Random r = new Random();
+            DateTime[] D = new DateTime[4];
+            
+            for(int i=0;i<4;i++)
             {
-                Food[i].Prod_num = 321 + i;
-                Food[i].Prod_price = 3 + (decimal)(i * 1.05);
-                Drinks[i].Prod_num = 421 + i;
-                Drinks[i].Prod_price = 1 + (decimal)(i * 1.15);
-
+                D[i] = D[i].AddDays(r.Next(1,20));
+                D[i] = D[i].AddYears(2022-i*2);
             }
-            Console.WriteLine("Chouse Task (...):");
-            int x;
-            x = int.Parse(Console.ReadLine());
-            switch (x)
+            FirmsArr F = new FirmsArr();
+            F.AddFirm(new Firma("FoodDelight", D[0], "Харчова індустрія", "John Smith", 50, "вул.Main, 123, Лондон"));
+            F.AddFirm(new Firma("IT Solutions Ltd", D[1], "ІТ - консалтинг", "Sarah Johnson", 200, "вул.Tech Park, 456, Сан - Франциско"));
+            F.AddFirm(new Firma("MarketingPlus", D[2], "Маркетингові послуги", "Michael White", 120, "вул.Marketing Avenue, 789, Лондон"));
+            F.AddFirm(new Firma("TechWare", D[3], "Розробка програмного забезпечення", "Emily Black", 80, "вул.Innovation Road, 234, Сан - Франциско"));
+            for(int i=0;i<4;i++)
             {
-                case 1:
-                    {
-                        Console.WriteLine("Welcome to market have 3 lines\n1-Food\n2-Drinks\n3-Chemicals\nchouse:");
-                        int y = int.Parse(Console.ReadLine());
-                        switch (y)
-                        {
-                            case 1:
-                                {
-                                    Products Prd = Products.Food;
-                                    if (Prd == Products.Food)
-                                    {
-                                        Console.WriteLine($"Welcom to { Prd}line");
-                                        for (int i = 0; i < 3; i++)
-                                        {
-                                            Console.WriteLine(Food[i].ToString());
-                                            Console.WriteLine("__________");
-                                        }
-                                    }
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    Products Prd = Products.Drinks;
-                                    if (Prd == Products.Drinks)
-                                    {
-                                        Console.WriteLine($"Welcom to {Prd}  line");
-                                        for (int i = 0; i < 3; i++)
-                                        {
-                                            Console.WriteLine(Drinks[i].ToString());
-                                            Console.WriteLine("__________");
-                                        }
-                                    }
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    Products Prd = Products.Chemicals;
-                                    if (Prd == Products.Chemicals)
-                                    {
-                                        Console.WriteLine($"Welcom to {Prd}  line");
-                                        for (int i = 0; i < 3; i++)
-                                        {
-                                            Console.WriteLine(Chem[i].ToString());
-                                            Console.WriteLine("__________");
-                                        }
-                                    }
-                                    break;
-                                }
-                            default:
-                            break;
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        Console.WriteLine("Students in some collage inf:");
-                        Student A = new Student("Ivan","Ivanov","Ivanovich",18);
-                        Student B = new Student("Sidr","Sidorov","Sidorovich",19);
-                        for(int i=0;i<3;i++)
-                        {
-                            A.Set_marks(i);
-                            B.Set_marks(i);
-                            A.Get_midl_Mark(i);
-                            B.Get_midl_Mark(i);
-                        }
-                        Console.WriteLine(A.ToString());
-                        Console.WriteLine("_________");
-                        Console.WriteLine(B.ToString());
-                        break;
-                    }
-                case 3:
-                    {
-                        Some_Figure A = new Some_Figure();
-                        A.Sum_all_Perimetr();
-                        A.Sum_all_Square();
-                        A.Show_All();
-                        Console.WriteLine(A.ToString());
-                        break;
-                    }
-                case 4:
-                    {
-                        Point a = new Point(10, 20);
-                        Point b = new Point(22, 11);
-                        Console.WriteLine("Point A: "+a.ToString()+"\nPoint B: "+b.ToString());
-                        if (a > b)
-                        {
-                            Console.WriteLine("a>b");
-                        }
-                        if (a < b)
-                        {
-                            Console.WriteLine("a<b");
-                        }
-                        break;
-                    }
-                default:
-                    break;
+                Console.WriteLine( F.TakeAll()[i].ToString());
+                Console.WriteLine("========================================");
             }
+            /*Отримати інформацію про всі фірми. */
+            //Firma Some=F.TakeFirm_by_name("Food");
+            /* Отримати фірми, які мають у назві слово «Food».*/
+            Console.WriteLine("________________task_#1__________________");
+            Console.WriteLine("Отримати фірми, які мають у назві слово «Food».");
+            F.TakeFirm_by_name("Food");
+            /*. Отримати фірми, які працюють у галузі маркетингу. */
+            Console.WriteLine("________________task_#2__________________");
+            Console.WriteLine("Отримати фірми, які працюють у галузі маркетингу.");
+            F.TakeFirm_by_Type("Маркетингові послуги");
+            /* Отримати фірми, які працюють у галузі маркетингу або IT.*/
+            Console.WriteLine("________________task_#3__________________");
+            Console.WriteLine("Отримати фірми, які працюють у галузі маркетингу або IT.");
+            F.TakeFirm_by_Type("ІТ - консалтинг", "Маркетингові послуги");
+            /* Отримати фірми з кількістю працівників більшою, ніж 100.*/
+            Console.WriteLine("________________task_#4__________________");
+            Console.WriteLine("Отримати фірми з кількістю працівників більшою, ніж 100.");
+            F.TakeFirm_by_CountWorker(100);
+            /* Отримати фірми з кількістю працівників у діапазоні від 100 до 300. */
+            Console.WriteLine("________________task_#5__________________");
+            Console.WriteLine("Отримати фірми з кількістю працівників у діапазоні від 100 до 300.");
+            F.TakeFirm_by_CountWorker_diap(100, 300);
+            /* Отримати фірми, які знаходяться в Лондоні. */
+            Console.WriteLine("________________task_#6__________________");
+            Console.WriteLine("Отримати фірми, які знаходяться в Лондоні.");
+            F.TakeFirm_by_Adress("Лондон");
 
+            /* Отримати фірми, в яких прізвище директора White. */
+            Console.WriteLine("________________task_#7__________________");
+            Console.WriteLine("Отримати фірми, в яких прізвище директора White.");
+            F.takeFirm_by_DirName("White");
+            /* Отримати фірми, які засновані більше двох років тому. */
+            Console.WriteLine("________________task_#8__________________");
+            Console.WriteLine("Отримати фірми, які засновані більше двох років тому.");
+            F.TakeFirm_by_older(2);
+            /* Отримати фірми з дня заснування яких минуло 123 дні.*/
+            Console.WriteLine("________________task_#9__________________");
+            Console.WriteLine("Отримати фірми з дня заснування яких минуло 123 дні.");
+            F.TakeFirm_by_older_day(123);
+            /* Отримати фірми, в яких прізвище директора Black і мають у назві фірми слово «White». */
+            Console.WriteLine("________________task_#10__________________");
+            Console.WriteLine("Отримати фірми, в яких прізвище директора Black і мають у назві фірми слово «White».");
+            F.TakeFirm_by_NameDir_and_name("Black", "White");
         }
-
     }
 }

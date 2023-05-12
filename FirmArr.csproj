@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08F829A0-31A0-49D3-B316-8A68B396A294}</ProjectGuid>
+    <ProjectGuid>{F8B8E754-7C63-4077-9765-6CFA2CE93083}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Hw_struct_class</RootNamespace>
-    <AssemblyName>Hw_struct_class</AssemblyName>
+    <RootNamespace>FirmArr</RootNamespace>
+    <AssemblyName>FirmArr</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,15 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Article.cs" />
-    <Compile Include="Figur.cs" />
-    <Compile Include="Point.cs" />
+    <Compile Include="Firma.cs" />
+    <Compile Include="Firms.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
